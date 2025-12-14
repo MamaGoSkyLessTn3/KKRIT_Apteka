@@ -1,0 +1,4 @@
+get allservices
+get all doctors
+post application   
+      
