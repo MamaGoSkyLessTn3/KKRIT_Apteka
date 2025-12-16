@@ -1,23 +1,51 @@
-import {cn} from "../utils/css.ts";
+import { cn } from "../utils/css.ts";
 
 import * as React from "react";
+import type { ComponentProps } from "react";
+import { Link } from "react-router";
 
-const AppButton = ({text, variant, icon, className}: {
-    text: string,
-    className?: string,
-    icon?: React.ReactNode,
-    variant: 'blue' | 'gray'
-}) => {
-    return (
+interface ButtonProps extends ComponentProps<"button"> {
+  text: string;
+  className?: string;
+  icon?: React.ReactNode;
+  variant: "blue" | "gray";
+  link?: string;
+  iconSide?: "left" | "right";
+}
 
-        <div
-            className={cn('flex items-center text-center px-3 py-2 rounded gap-2 transition-colors', className,
-                variant === "blue" && 'bg-[#2563EB] text-white',
-                variant === "gray" && 'bg-white text-[#374151] font-bold border border-[#D1D5DB]')}>
-            {icon}
-            {text}
-        </div>
-    );
+const AppButton = ({
+  text,
+  variant,
+  icon,
+  className,
+  link,
+  iconSide = "left",
+  ...props
+}: ButtonProps) => {
+  const classNames = cn(
+    "flex items-center text-center px-3 py-2 justify-center rounded-lg gap-2 transition-colors",
+    className,
+    variant === "blue" && "bg-accent-blue text-white",
+    variant === "gray" && "bg-white text-[#374151] font-bold",
+  );
+
+  return (
+    <>
+      {link ? (
+        <Link to={link} className={classNames}>
+          {iconSide === "left" && icon}
+          <span>{text}</span>
+          {iconSide === "right" && icon}
+        </Link>
+      ) : (
+        <button className={classNames} {...props}>
+          {iconSide === "left" && icon}
+          <span>{text}</span>
+          {iconSide === "right" && icon}
+        </button>
+      )}
+    </>
+  );
 };
 
 export default AppButton;
