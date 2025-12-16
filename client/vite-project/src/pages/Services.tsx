@@ -1,28 +1,9 @@
 import { FaFilter, FaSearch } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import type { Service } from "../types/service.ts";
-import { fetchServices } from "../api/services/fetch.ts";
 import ServiceCard from "../components/ServiceCard.tsx";
+import { useFetchEntities } from "../hooks/useFetchEntities.ts";
 
 const ServicesPage = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [isServicesLoading, setServicesLoading] = useState<boolean>(false);
-
-  const getServices = async () => {
-    try {
-      setServicesLoading(true);
-      const { data } = await fetchServices();
-      setServices(data);
-    } catch (error) {
-      console.error("REAL ERROR 👉", error);
-    } finally {
-      setServicesLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getServices();
-  }, []);
+  const { services, isServicesLoading } = useFetchEntities();
 
   return (
     <div className="flex flex-col items-center gap-4 py-12 w-2/3 mx-auto">

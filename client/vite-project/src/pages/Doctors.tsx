@@ -1,28 +1,9 @@
 import { FaFilter } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import type { Doctor } from "../types/service.ts";
-import { fetchDoctors } from "../api/services/fetch.ts";
 import DoctorCard from "../components/DoctorCard.tsx";
+import { useFetchEntities } from "../hooks/useFetchEntities.ts";
 
 const DoctorsPage = () => {
-  const [doctors, setDoctors] = useState<Doctor[]>([]);
-  const [isDoctorsLoading, setDoctorsLoading] = useState<boolean>(false);
-
-  const getDoctors = async () => {
-    try {
-      setDoctorsLoading(true);
-      const { data } = await fetchDoctors();
-      setDoctors(data.doctors);
-      console.log(data.doctors);
-    } catch (error) {
-      console.error("REAL ERROR 👉", error);
-    } finally {
-      setDoctorsLoading(false);
-    }
-  };
-  useEffect(() => {
-    getDoctors();
-  }, []);
+  const { doctors, isDoctorsLoading } = useFetchEntities();
 
   return (
     <div className="flex flex-col items-center gap-4 py-12 w-2/3 mx-auto">

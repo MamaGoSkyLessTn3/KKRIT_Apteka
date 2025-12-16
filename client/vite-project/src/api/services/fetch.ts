@@ -1,11 +1,14 @@
-import {$host} from "../instance.ts";
-import type {Doctor, Service} from "../../types/service.ts";
+import { $host } from "../instance.ts";
+import type { Application, Doctor, Service } from "../../types/service.ts";
 
 export const fetchServices = async () => {
-    return $host.get<Service[]>('api/services');
-
-}
+  return $host.get<Service[]>("api/services");
+};
 
 export const fetchDoctors = async () => {
-    return $host.get<{ doctors: Doctor[] }>('api/doctors');
-}
+  return $host.get<{ doctors: Doctor[] }>("api/doctors");
+};
+
+export const createApplication = async (application: Application) => {
+  return $host.post("api/application", application);
+};

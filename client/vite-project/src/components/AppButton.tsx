@@ -23,7 +23,7 @@ const AppButton = ({
   ...props
 }: ButtonProps) => {
   const classNames = cn(
-    "flex items-center text-center px-3 py-2 justify-center rounded-lg gap-2 transition-colors",
+    "flex items-center text-center px-3 py-2 justify-center rounded-lg gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-[#D1D5DB]  disabled:text-black",
     className,
     variant === "blue" && "bg-accent-blue text-white",
     variant === "gray" && "bg-white text-[#374151] font-bold",
