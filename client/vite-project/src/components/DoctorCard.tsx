@@ -26,7 +26,9 @@ const DoctorCard = ({ doctor }: { doctor: Doctor }) => {
       <span className="text-[#2563EB] font-bold text-center">
         {doctor.type}
       </span>
-      <span className="text-[#4B5563] text-center">{doctor.experience}</span>
+      <span className="text-[#4B5563] text-center">
+        Стаж: {doctor.experience}
+      </span>
       <div className="text-[#4B5563] flex w-50 text-center line-clamp-2 overflow-hidden  ">
         <p className="text-[#4B5563] text-center line-clamp-2 overflow-hidden">
           {doctor.description}

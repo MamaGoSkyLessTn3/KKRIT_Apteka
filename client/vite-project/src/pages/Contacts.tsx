@@ -7,7 +7,7 @@ import {
   FaTelegramPlane,
   FaUser,
 } from "react-icons/fa";
-import { FaMessage } from "react-icons/fa6";
+import { FaMessage, FaRegMessage } from "react-icons/fa6";
 import AppButton from "../components/AppButton.tsx";
 import { Map } from "../components/Map.tsx";
 
@@ -200,6 +200,53 @@ const ContactsPage = () => {
                 variant="blue"
               />
             </form>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 text-center py-12">
+        <span className="text-3xl font-bold">Дополнительные способы связи</span>
+        <span className="text-xl text-text-gray">
+          Выберите удобный для вас способ связи с нами
+        </span>
+        <div className="grid-cols-3 gap-6 grid mx-auto w-2/3 mt-8 ">
+          <div className="flex py-10 px-6 flex-col gap-4 items-center rounded-lg bg-[#F0FDF4]">
+            <FaPhoneAlt className="size-6 text-[#16A34A]" />
+            <span className="font-bold text-xl">По телефону</span>
+            <span className="text-sm text-text-gray">
+              Быстрая консультация и запись на прием
+            </span>
+            <AppButton
+              text="Позвонить"
+              icon={<FaPhoneAlt />}
+              className="!bg-[#16A34A]"
+              variant="blue"
+            />
+          </div>
+          <div className="flex py-10 px-6 flex-col gap-4 items-center rounded-lg bg-[#EFF6FF]">
+            <FaRegEnvelope className="size-6 text-[#2563EB]" />
+            <span className="font-bold text-xl">По email</span>
+            <span className="text-sm text-text-gray">
+              Для документов и подробных вопросов
+            </span>
+            <AppButton
+              text="Позвонить"
+              icon={<FaRegEnvelope />}
+              className="!bg-[#2563EB]"
+              variant="blue"
+            />
+          </div>
+          <div className="flex py-10 px-6 flex-col gap-4 items-center rounded-lg bg-[#FAF5FF]">
+            <FaRegMessage className="size-6 text-[#9333EA]" />
+            <span className="font-bold text-xl">По телефону</span>
+            <span className="text-sm text-text-gray">
+              Быстрая консультация и запись на прием
+            </span>
+            <AppButton
+              text="Позвонить"
+              icon={<FaRegMessage />}
+              className="!bg-[#9333EA]"
+              variant="blue"
+            />
           </div>
         </div>
       </div>

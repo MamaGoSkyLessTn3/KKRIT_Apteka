@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   {
     dialect: "postgres",
     host: "localhost",
-    port: 5434,
+    port: 5432,
   },
 );
 sequelize.sync({ alter: true });

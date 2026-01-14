@@ -6,6 +6,8 @@ import {
   FaTag,
   FaUser,
 } from "react-icons/fa";
+import Banner from "../components/Banner.tsx";
+import MiniBanner from "../components/MiniBanner.tsx";
 
 const NewsPage = () => {
   return (
@@ -112,6 +114,8 @@ const NewsPage = () => {
           </div>
         </div>
       </div>
+      <Banner />
+      <MiniBanner />
     </>
   );
 };
